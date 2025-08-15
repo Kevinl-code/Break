@@ -1,153 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Breakup Effects</title>
-<style>
-    body {
-        background: #222;
-        color: white;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 20px;
-    }
-    .image-container {
-        position: relative;
-        display: inline-block;
-        margin-top: 20px;
-    }
-    img {
-        width: 300px;
-        height: auto;
-        transition: all 2s ease;
-        border-radius: 10px;
-        box-shadow: 0 0 20px #000;
-    }
-    /* Fire effect */
-    .fire {
-        animation: burn 3s forwards;
-        filter: brightness(0.6) contrast(1.5);
-    }
-    @keyframes burn {
-        0% { opacity: 1; }
-        50% { filter: blur(2px) brightness(0.3) sepia(1) saturate(5) hue-rotate(-30deg); }
-        100% { opacity: 0; transform: scale(0.8); }
-    }
-
-    /* Ash fade effect after fire */
-    .ash {
-        background: url('https://i.imgur.com/8wPjR9V.png') center/cover;
-        opacity: 0;
-        animation: fadeAsh 2s forwards;
-    }
-    @keyframes fadeAsh {
-        to { opacity: 1; }
-    }
-
-    /* Cut effect */
-    .cut {
-        clip-path: polygon(0 0, 48% 0, 48% 100%, 0 100%, 52% 0, 100% 0, 100% 100%, 52% 100%);
-        animation: cutAnim 1s forwards;
-    }
-    @keyframes cutAnim {
-        from { transform: scale(1) }
-        to { transform: rotate(-5deg) }
-    }
-
-    /* Bury effect */
-    .bury {
-        animation: buryAnim 3s forwards;
-    }
-    @keyframes buryAnim {
-        to { transform: translateY(200px); opacity: 0; }
-    }
-
-    .buttons {
-        margin-top: 20px;
-    }
-    button {
-        background: crimson;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        margin: 5px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 14px;
-    }
-    button:hover {
-        background: darkred;
-    }
-</style>
+    <meta charset="UTF-8">
+    <title>Breakup Effects</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Breakup Effects Demo</h1>
-<div class="image-container">
-    <img id="coupleImg" src="Image.jpg" alt="Couple Photo">
-    <img id="coupleImg2" src="Image.jpg" alt="Couple Photo">
-    <img id="coupleImg3" src="Image.jpg" alt="Couple Photo">
+<h1>💔 Breakup Photo Effects 💔</h1>
+<div class="gallery">
+    <!-- Add your images here -->
+    <div class="photo">
+        <img src="Image.jpg" alt="Photo 1">
+        <div class="actions">
+            <button onclick="burn(this)">🔥 Fire</button>
+            <button onclick="cut(this)">✂️ Cut</button>
+            <button onclick="bury(this)">⚰️ Bury</button>
+        </div>
+    </div>
+
+    <div class="photo">
+        <img src="Image.jpg" alt="Photo 2">
+        <div class="actions">
+            <button onclick="burn(this)">🔥 Fire</button>
+            <button onclick="cut(this)">✂️ Cut</button>
+            <button onclick="bury(this)">⚰️ Bury</button>
+        </div>
+    </div>
+
+ 
 </div>
 
-<div class="buttons">
-    <button onclick="burnImage()">🔥 Fire & Ash</button>
-    <button onclick="cutImage()">✂️ Cut</button>
-    <button onclick="buryImage()">⚰️ Bury</button>
-</div>
-
-<script>
-    function burnImage() {
-        let img = document.getElementById('coupleImg');
-        img.className = 'fire';
-        setTimeout(() => {
-            img.src = 'https://i.imgur.com/8wPjR9V.png'; // ash image
-        }, 2500);
-    }
-
-    function cutImage() {
-        let img = document.getElementById('coupleImg');
-        img.className = 'cut';
-    }
-
-    function buryImage() {
-        let img = document.getElementById('coupleImg');
-        img.className = 'bury';
-    }
-    function burnImage() {
-        let img = document.getElementById('coupleImg2');
-        img.className = 'fire';
-        setTimeout(() => {
-            img.src = 'https://i.imgur.com/8wPjR9V.png'; // ash image
-        }, 2500);
-    }
-
-    function cutImage() {
-        let img = document.getElementById('coupleImg2');
-        img.className = 'cut';
-    }
-
-    function buryImage() {
-        let img = document.getElementById('coupleImg2');
-        img.className = 'bury';
-    }
-    function burnImage() {
-        let img = document.getElementById('coupleImg3');
-        img.className = 'fire';
-        setTimeout(() => {
-            img.src = 'https://i.imgur.com/8wPjR9V.png'; // ash image
-        }, 2500);
-    }
-
-    function cutImage() {
-        let img = document.getElementById('coupleImg3');
-        img.className = 'cut';
-    }
-
-    function buryImage() {
-        let img = document.getElementById('coupleImg3');
-        img.className = 'bury';
-    }
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
